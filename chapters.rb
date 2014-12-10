@@ -1,5 +1,7 @@
+require 'json'
+
 # http://d.hatena.ne.jp/moro/20110706/1309962217
-chapters = [
+straplines = [
   '[001]　Railsをインストールする  ',
   '[002]　Railsアプリケーションを作成する  ',
   '[003]　Railsアプリケーションのファイル構造を理解する  ',
@@ -190,6 +192,31 @@ chapters = [
   '[188]　Rails用ライブラリを探す  ',
   '[189]　自分で作ったライブラリをRubyGemsとして公開する  ',
   '[190]　Railsを直す'  
-  ].map do |line|
-    {:num => line[1,3], :title => line[6, line.size]}
-  end 
+].map do |line|
+  {:num => line[1,3], :title => line[6, line.size]}
+end 
+
+chapters = [
+  ['第1章', 'Railsの基本', 1, 14],
+  ['第2章', 'コントローラ', 15, 50],
+  ['第3章', 'モデル', 51, 101],
+  ['第4章', 'ビュー', 102, 133],
+  ['第5章', 'ActiveSupport', 134, 153],
+  ['第6章', 'メール', 154, 159],
+  ['第7章', 'ActiveResource', 160, 165],
+  ['第8章', 'テスト', 166, 174],
+  ['第9章', 'セキュリティ', 175, 178],
+  ['第10章', 'デプロイと実行環境', 179, 182],
+  ['第11章', 'ライブラリ', 183, 190],
+].map do |line|
+  {
+    :chapter => line[0],
+    :title => line[1],
+    :start_num => line[2]-1,
+    :end_num => line[3]-1,
+    :straplines => straplines[line[2]-1..line[3]-1]
+  }
+end
+
+File.write('chapters.json', chapters.to_json)
+File.write('stripelines.json', straplines.to_json)
