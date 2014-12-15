@@ -944,7 +944,7 @@ straplines = [
   
   [
     '[189]　自分で作ったライブラリをRubyGemsとして公開する', 458,
-    ['だいぶ上級', 'RubyGems', 'Bundler', 'Socal Coding']
+    ['だいぶ上級', 'RubyGems', 'Bundler', 'Social Coding']
   ],
   
   [
